@@ -1,9 +1,13 @@
+require 'csv'
+
 class Curator
   attr_reader :photographs, :artists
 
   def initialize
     @photographs = []
     @artists = []
+    # @photo_data = './data/photographs.csv'
+    # @photo_data = './data/artists.csv'
   end
 
   def add_photograph(photo)
@@ -43,5 +47,8 @@ class Curator
         end
       end
     photos_by_country.flatten
+  end
+  def load_photographs(data)
+    csv = CSV.read("#{data}", headers: true)
   end
 end
