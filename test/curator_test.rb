@@ -6,6 +6,7 @@ require './lib/curator'
 
 class CuratorTest < Minitest::Test
   def setup
+    @photo_data = './data/photographs.csv'
     @curator = Curator.new
     @photo_2 = Photograph.new({
      id: "2",
@@ -120,6 +121,9 @@ class CuratorTest < Minitest::Test
     assert_equal true, @curator.photographs_taken_by_artist_from("United States").include?(@photo_3)
     assert_equal true, @curator.photographs_taken_by_artist_from("United States").include?(@photo_4)
     assert_equal [], @curator.photographs_taken_by_artist_from("Argentina")
+  end
+  def test_it_can_load_photographs
+    assert_equal @photo_data, @curator.load_photographs('./data/photographs.csv')
   end
 
 end
