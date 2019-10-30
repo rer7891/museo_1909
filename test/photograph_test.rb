@@ -6,13 +6,13 @@ require './lib/artist'
 class PhotographTest < Minitest::Test
 
   def setup
-    @attributes = {
+    attributes = {
     id: "1",
     name: "Rue Mouffetard, Paris (Boy with Bottles)",
     artist_id: "4",
     year: "1954"
   }
-    @photograph = Photograph.new(@attributes)
+    @photograph = Photograph.new(attributes)
   end
 
   def test_it_exists
